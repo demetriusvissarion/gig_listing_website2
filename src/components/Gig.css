@@ -1,0 +1,23 @@
+#gig-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#band-name {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+#band-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#band-description {
+    margin-top: 10px;
+}
