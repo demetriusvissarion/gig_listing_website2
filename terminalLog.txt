@@ -1,0 +1,914 @@
+➜  gig_listing_website2 git:(main) ✗ jest
+ FAIL  tests/Hello.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/tests/Hello.test.jsx: Support for the experimental syntax 'jsx' isn't currently enabled (7:12):
+
+       5 | describe("Hello", () => {
+       6 |   it("Should render a h1 with the correct name", () => {
+    >  7 |     render(<Hello name="Alice" />);
+         |            ^
+       8 |     expect(screen.getByText("Hello Alice!"));
+       9 |   });
+      10 | });
+
+    Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' section of your Babel config to enable transformation.
+    If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-jsx) to the 'plugins' section to enable parsing.
+
+      at constructor (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/parser/src/parse-error.ts:81:19)
+
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/tests/Gig.test.jsx: Support for the experimental syntax 'jsx' isn't currently enabled (12:7):
+
+      10 |   const event_location = 'O2 Arena';
+      11 |     render(
+    > 12 |       <Gig 
+         |       ^
+      13 |         band_name={band_name}
+      14 |         band_description={band_description}
+      15 |         event_time={event_time} 
+
+    Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' section of your Babel config to enable transformation.
+    If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-jsx) to the 'plugins' section to enable parsing.
+
+      at constructor (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/parser/src/parse-error.ts:81:19)
+          at parser.next (<anonymous>)
+          at normalizeFile.next (<anonymous>)
+          at run.next (<anonymous>)
+          at transform.next (<anonymous>)
+
+Test Suites: 2 failed, 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.452 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ npm list jest @babel/core @babel/preset-react
+gig_listing_website@0.0.1 /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2
+└─┬ @vitejs/plugin-react@4.0.0
+  ├─┬ @babel/core@7.21.8
+  │ └─┬ @babel/helper-compilation-targets@7.21.5
+  │   └── @babel/core@7.21.8 deduped
+  ├─┬ @babel/plugin-transform-react-jsx-self@7.21.0
+  │ └── @babel/core@7.21.8 deduped
+  └─┬ @babel/plugin-transform-react-jsx-source@7.19.6
+    └── @babel/core@7.21.8 deduped
+
+➜  gig_listing_website2 git:(main) ✗ sudo npm install --save-dev @babel/preset-env
+Password:
+
+added 103 packages, changed 14 packages, and audited 547 packages in 4s
+
+109 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ sudo npm install --save-dev jest-environment-jsdom
+Password:
+
+added 19 packages, changed 6 packages, and audited 566 packages in 3s
+
+109 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jest
+ FAIL  tests/Hello.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/tests/Hello.test.jsx: Support for the experimental syntax 'jsx' isn't currently enabled (7:12):
+
+       5 | describe("Hello", () => {
+       6 |   it("Should render a h1 with the correct name", () => {
+    >  7 |     render(<Hello name="Alice" />);
+         |            ^
+       8 |     expect(screen.getByText("Hello Alice!"));
+       9 |   });
+      10 | });
+
+    Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' section of your Babel config to enable transformation.
+    If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-jsx) to the 'plugins' section to enable parsing.
+
+      at constructor (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/parser/src/parse-error.ts:81:19)
+
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/tests/Gig.test.jsx: Support for the experimental syntax 'jsx' isn't currently enabled (12:7):
+
+      10 |   const event_location = 'O2 Arena';
+      11 |     render(
+    > 12 |       <Gig 
+         |       ^
+      13 |         band_name={band_name}
+      14 |         band_description={band_description}
+      15 |         event_time={event_time} 
+
+    Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' section of your Babel config to enable transformation.
+    If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-jsx) to the 'plugins' section to enable parsing.
+
+      at constructor (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/parser/src/parse-error.ts:81:19)
+          at parser.next (<anonymous>)
+          at normalizeFile.next (<anonymous>)
+          at run.next (<anonymous>)
+          at transform.next (<anonymous>)
+
+Test Suites: 2 failed, 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.443 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ npm install
+
+up to date, audited 566 packages in 621ms
+
+109 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jest       
+ FAIL  tests/Hello.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/tests/Hello.test.jsx: Support for the experimental syntax 'jsx' isn't currently enabled (7:12):
+
+       5 | describe("Hello", () => {
+       6 |   it("Should render a h1 with the correct name", () => {
+    >  7 |     render(<Hello name="Alice" />);
+         |            ^
+       8 |     expect(screen.getByText("Hello Alice!"));
+       9 |   });
+      10 | });
+
+    Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' section of your Babel config to enable transformation.
+    If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-jsx) to the 'plugins' section to enable parsing.
+
+      at constructor (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/parser/src/parse-error.ts:81:19)
+
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/tests/Gig.test.jsx: Support for the experimental syntax 'jsx' isn't currently enabled (12:7):
+
+      10 |   const event_location = 'O2 Arena';
+      11 |     render(
+    > 12 |       <Gig 
+         |       ^
+      13 |         band_name={band_name}
+      14 |         band_description={band_description}
+      15 |         event_time={event_time} 
+
+    Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' section of your Babel config to enable transformation.
+    If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-jsx) to the 'plugins' section to enable parsing.
+
+      at constructor (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/parser/src/parse-error.ts:81:19)
+          at parser.next (<anonymous>)
+          at normalizeFile.next (<anonymous>)
+          at run.next (<anonymous>)
+          at transform.next (<anonymous>)
+
+Test Suites: 2 failed, 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.391 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ npm install
+
+up to date, audited 566 packages in 652ms
+
+109 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jest
+(node:63452) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:63451) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Cannot find module '@babel/preset-react'
+    Require stack:
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/plugins.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-snapshot/build/InlineSnapshots.js
+
+    Make sure that all the Babel plugins and presets you are using
+    are defined as dependencies or devDependencies in your package.json
+    file. It's possible that the missing plugin is loaded by a preset
+    you are using that forgot to add the plugin to its dependencies: you
+    can workaround this problem by explicitly adding the missing package
+    to your top-level package.json.
+
+      at tryRequireResolve (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/src/config/files/plugins.ts:140:36)
+          at loadPreset.next (<anonymous>)
+          at createDescriptor.next (<anonymous>)
+          at Array.map (<anonymous>)
+          at createDescriptors.next (<anonymous>)
+          at createPresetDescriptors.next (<anonymous>)
+          at mergeChainOpts.next (<anonymous>)
+          at chainWalker.next (<anonymous>)
+          at loadFileChain.next (<anonymous>)
+          at buildRootChain.next (<anonymous>)
+          at loadPrivatePartialConfig.next (<anonymous>)
+          at loadPartialConfig.next (<anonymous>)
+
+ FAIL  tests/Hello.test.jsx
+  ● Test suite failed to run
+
+    Cannot find module '@babel/preset-react'
+    Require stack:
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/plugins.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-snapshot/build/InlineSnapshots.js
+
+    Make sure that all the Babel plugins and presets you are using
+    are defined as dependencies or devDependencies in your package.json
+    file. It's possible that the missing plugin is loaded by a preset
+    you are using that forgot to add the plugin to its dependencies: you
+    can workaround this problem by explicitly adding the missing package
+    to your top-level package.json.
+
+      at tryRequireResolve (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/src/config/files/plugins.ts:140:36)
+          at loadPreset.next (<anonymous>)
+          at createDescriptor.next (<anonymous>)
+          at Array.map (<anonymous>)
+          at createDescriptors.next (<anonymous>)
+          at createPresetDescriptors.next (<anonymous>)
+          at mergeChainOpts.next (<anonymous>)
+          at chainWalker.next (<anonymous>)
+          at loadFileChain.next (<anonymous>)
+          at buildRootChain.next (<anonymous>)
+          at loadPrivatePartialConfig.next (<anonymous>)
+          at loadPartialConfig.next (<anonymous>)
+
+Test Suites: 2 failed, 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.868 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ npm install
+
+up to date, audited 566 packages in 654ms
+
+109 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jest
+(node:63618) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:63617) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  tests/Hello.test.jsx
+  ● Test suite failed to run
+
+    Cannot find module '@babel/preset-react'
+    Require stack:
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/plugins.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-snapshot/build/InlineSnapshots.js
+
+    Make sure that all the Babel plugins and presets you are using
+    are defined as dependencies or devDependencies in your package.json
+    file. It's possible that the missing plugin is loaded by a preset
+    you are using that forgot to add the plugin to its dependencies: you
+    can workaround this problem by explicitly adding the missing package
+    to your top-level package.json.
+
+      at tryRequireResolve (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/src/config/files/plugins.ts:140:36)
+          at loadPreset.next (<anonymous>)
+          at createDescriptor.next (<anonymous>)
+          at Array.map (<anonymous>)
+          at createDescriptors.next (<anonymous>)
+          at createPresetDescriptors.next (<anonymous>)
+          at mergeChainOpts.next (<anonymous>)
+          at chainWalker.next (<anonymous>)
+          at loadFileChain.next (<anonymous>)
+          at buildRootChain.next (<anonymous>)
+          at loadPrivatePartialConfig.next (<anonymous>)
+          at loadPartialConfig.next (<anonymous>)
+
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Cannot find module '@babel/preset-react'
+    Require stack:
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/plugins.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-snapshot/build/InlineSnapshots.js
+
+    Make sure that all the Babel plugins and presets you are using
+    are defined as dependencies or devDependencies in your package.json
+    file. It's possible that the missing plugin is loaded by a preset
+    you are using that forgot to add the plugin to its dependencies: you
+    can workaround this problem by explicitly adding the missing package
+    to your top-level package.json.
+
+      at tryRequireResolve (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/src/config/files/plugins.ts:140:36)
+          at loadPreset.next (<anonymous>)
+          at createDescriptor.next (<anonymous>)
+          at Array.map (<anonymous>)
+          at createDescriptors.next (<anonymous>)
+          at createPresetDescriptors.next (<anonymous>)
+          at mergeChainOpts.next (<anonymous>)
+          at chainWalker.next (<anonymous>)
+          at loadFileChain.next (<anonymous>)
+          at buildRootChain.next (<anonymous>)
+          at loadPrivatePartialConfig.next (<anonymous>)
+          at loadPartialConfig.next (<anonymous>)
+
+Test Suites: 2 failed, 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.589 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ npx jest
+(node:63696) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:63695) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  tests/Hello.test.jsx
+  ● Test suite failed to run
+
+    Cannot find module '@babel/preset-react'
+    Require stack:
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/plugins.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-snapshot/build/InlineSnapshots.js
+
+    Make sure that all the Babel plugins and presets you are using
+    are defined as dependencies or devDependencies in your package.json
+    file. It's possible that the missing plugin is loaded by a preset
+    you are using that forgot to add the plugin to its dependencies: you
+    can workaround this problem by explicitly adding the missing package
+    to your top-level package.json.
+
+      at tryRequireResolve (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/src/config/files/plugins.ts:140:36)
+          at loadPreset.next (<anonymous>)
+          at createDescriptor.next (<anonymous>)
+          at Array.map (<anonymous>)
+          at createDescriptors.next (<anonymous>)
+          at createPresetDescriptors.next (<anonymous>)
+          at mergeChainOpts.next (<anonymous>)
+          at chainWalker.next (<anonymous>)
+          at loadFileChain.next (<anonymous>)
+          at buildRootChain.next (<anonymous>)
+          at loadPrivatePartialConfig.next (<anonymous>)
+          at loadPartialConfig.next (<anonymous>)
+
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Cannot find module '@babel/preset-react'
+    Require stack:
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/plugins.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/config/files/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/lib/index.js
+    - /Users/demetriusvissarion/.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-snapshot/build/InlineSnapshots.js
+
+    Make sure that all the Babel plugins and presets you are using
+    are defined as dependencies or devDependencies in your package.json
+    file. It's possible that the missing plugin is loaded by a preset
+    you are using that forgot to add the plugin to its dependencies: you
+    can workaround this problem by explicitly adding the missing package
+    to your top-level package.json.
+
+      at tryRequireResolve (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/@babel/core/src/config/files/plugins.ts:140:36)
+          at loadPreset.next (<anonymous>)
+          at createDescriptor.next (<anonymous>)
+          at Array.map (<anonymous>)
+          at createDescriptors.next (<anonymous>)
+          at createPresetDescriptors.next (<anonymous>)
+          at mergeChainOpts.next (<anonymous>)
+          at chainWalker.next (<anonymous>)
+          at loadFileChain.next (<anonymous>)
+          at buildRootChain.next (<anonymous>)
+          at loadPrivatePartialConfig.next (<anonymous>)
+          at loadPartialConfig.next (<anonymous>)
+
+Test Suites: 2 failed, 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.449 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ sudo npm install --save-dev @babel/preset-react
+
+Password:
+
+added 6 packages, and audited 572 packages in 839ms
+
+109 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jest
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/tests/Gig.test.jsx:1
+    ({"Object.<anonymous>":function(module,exports,require,__dirname,__filename,jest){import React from "react";
+                                                                                      ^^^^^^
+
+    SyntaxError: Cannot use import statement outside a module
+
+      at Runtime.createScriptFromCode (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-runtime/build/index.js:1505:14)
+
+ FAIL  tests/Hello.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/tests/Hello.test.jsx:1
+    ({"Object.<anonymous>":function(module,exports,require,__dirname,__filename,jest){import { screen, render } from "@testing-library/react";
+                                                                                      ^^^^^^
+
+    SyntaxError: Cannot use import statement outside a module
+
+      at Runtime.createScriptFromCode (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-runtime/build/index.js:1505:14)
+
+(node:63809) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:63808) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Test Suites: 2 failed, 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.702 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ jest
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/tests/Gig.test.jsx:1
+    ({"Object.<anonymous>":function(module,exports,require,__dirname,__filename,jest){import React from "react";
+                                                                                      ^^^^^^
+
+    SyntaxError: Cannot use import statement outside a module
+
+      at Runtime.createScriptFromCode (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-runtime/build/index.js:1505:14)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.277 s
+Ran all test suites.
+(node:63889) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+➜  gig_listing_website2 git:(main) ✗ sudo npm install --save-dev @babel/preset-env babel-jest
+
+Password:
+
+added 58 packages, and audited 630 packages in 3s
+
+111 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ npm install
+
+up to date, audited 630 packages in 706ms
+
+111 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jest
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/src/components/Gig.css:1
+    ({"Object.<anonymous>":function(module,exports,require,__dirname,__filename,jest){#gig-container {
+                                                                                     ^
+
+    SyntaxError: Private field '#gig' must be declared in an enclosing class
+
+      1 | import React from "react";
+    > 2 | import './Gig.css';
+        | ^
+      3 |
+      4 | const Gig = (props) => {
+      5 |     return (    
+
+      at Runtime.createScriptFromCode (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-runtime/build/index.js:1505:14)
+      at Object.require (src/components/Gig.jsx:2:1)
+      at Object.require (tests/Gig.test.jsx:4:1)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.904 s
+Ran all test suites.
+(node:64141) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+➜  gig_listing_website2 git:(main) ✗ sudo npm install --save-dev @babel/plugin-proposal-private-methods
+
+Password:
+npm WARN deprecated @babel/plugin-proposal-private-methods@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+
+added 1 package, and audited 631 packages in 1s
+
+111 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ npm install
+
+up to date, audited 631 packages in 677ms
+
+111 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jest
+ FAIL  tests/Gig.test.jsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    /Users/demetriusvissarion/Desktop/Projects/gig_listing_website2/src/components/Gig.css:1
+    ({"Object.<anonymous>":function(module,exports,require,__dirname,__filename,jest){#gig-container {
+                                                                                     ^
+
+    SyntaxError: Private field '#gig' must be declared in an enclosing class
+
+      1 | import React from "react";
+    > 2 | import './Gig.css';
+        | ^
+      3 |
+      4 | const Gig = (props) => {
+      5 |     return (    
+
+      at Runtime.createScriptFromCode (../../../.nvm/versions/node/v21.5.0/lib/node_modules/jest/node_modules/jest-runtime/build/index.js:1505:14)
+      at Object.require (src/components/Gig.jsx:2:1)
+      at Object.require (tests/Gig.test.jsx:4:1)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.898 s
+Ran all test suites.
+(node:64272) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+➜  gig_listing_website2 git:(main) ✗ sudo npm install --save-dev jest-transform-stub
+Password:
+
+added 1 package, and audited 632 packages in 651ms
+
+111 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jest
+ FAIL  tests/Gig.test.jsx
+  ✕ renders gig with the correct band_name 
+
+  ● renders gig with the correct band_name 
+
+    The error below may be caused by using the wrong test environment, see https://jestjs.io/docs/configuration#testenvironment-string.
+    Consider using the "jsdom" test environment.
+    
+    ReferenceError: document is not defined
+
+       9 |   const event_time = '26/01/2024 @20:00';
+      10 |   const event_location = 'O2 Arena';
+    > 11 |     render(
+         |           ^
+      12 |       <Gig 
+      13 |         band_name={band_name}
+      14 |         band_description={band_description}
+
+      at render (node_modules/@testing-library/react/dist/pure.js:215:5)
+      at Object.<anonymous> (tests/Gig.test.jsx:11:11)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        0.679 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ sudom npm install --save-dev jsdom @testing-library/react
+
+zsh: command not found: sudom
+➜  gig_listing_website2 git:(main) ✗ sudo npm install --save-dev jsdom @testing-library/react
+
+Password:
+
+changed 2 packages, and audited 632 packages in 1s
+
+111 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jest
+ FAIL  tests/Gig.test.jsx
+  ✕ renders gig with the correct band_name 
+
+  ● renders gig with the correct band_name 
+
+    The error below may be caused by using the wrong test environment, see https://jestjs.io/docs/configuration#testenvironment-string.
+    Consider using the "jsdom" test environment.
+    
+    ReferenceError: document is not defined
+
+       9 |   const event_time = '26/01/2024 @20:00';
+      10 |   const event_location = 'O2 Arena';
+    > 11 |     render(
+         |           ^
+      12 |       <Gig 
+      13 |         band_name={band_name}
+      14 |         band_description={band_description}
+
+      at render (node_modules/@testing-library/react/dist/pure.js:215:5)
+      at Object.<anonymous> (tests/Gig.test.jsx:11:11)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        0.552 s, estimated 1 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ npm install
+
+up to date, audited 632 packages in 662ms
+
+111 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+➜  gig_listing_website2 git:(main) ✗ jet
+zsh: command not found: jet
+➜  gig_listing_website2 git:(main) ✗ jest
+(node:64631) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  tests/Gig.test.jsx
+  ✓ renders gig with the correct band_name  (30 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.885 s, estimated 1 s
+Ran all test suites.
+➜  gig_listing_website2 git:(main) ✗ npm run dev
+
+> gig_listing_website@0.0.1 dev
+> vite
+
+
+  VITE v4.5.2  ready in 300 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+
+
+
+
+
+
+
+
+

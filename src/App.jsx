@@ -1,7 +1,7 @@
 // import Hello from "./components/Hello";
 // import makersLogo from "../public/assets/Makers-Logo.png";
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import Gig from "./components/Gig";
 
 function App() {
@@ -11,6 +11,12 @@ function App() {
   const event_location = 'O2 Arena';
   const queenImageUrl = "/assets/queen.jpg";
   const akonImageUrl = "/assets/akon.jpg";
+
+  const [count, setCount] = useState(0);
+
+  const incrementCounter = () => {
+    setCount(count + 1);
+  };
 
   return (
     <>
@@ -29,6 +35,10 @@ function App() {
         event_location="O2 Arena"
         image={akonImageUrl}
       />
+      <div>
+        <h1>{count}</h1>
+        <button onClick={incrementCounter}>Increment the counter</button>
+      </div>
     </div>
     </>
   );
