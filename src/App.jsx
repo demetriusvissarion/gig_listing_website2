@@ -8,50 +8,64 @@ import InputComponent from "./components/InputComponent";
 import Die from "./components/Die";
 
 function App() {
-  const gigs = [
+  const [gigs, setGigs] = useState([
     {
-      band_name:'Queen', 
-      band_description:"Makers' favourite rock band",
-      event_time:'26/01/2024 @20:00',
-      event_location:'O2 Arena',
-      image:'/assets/queen.jpg'
+      band_name: 'Queen',
+      band_description: "Makers' favourite rock band",
+      event_time: '26/01/2024 @20:00',
+      event_location: 'O2 Arena',
+      image: '/assets/queen.jpg',
+      isFavourite: false,
     },
     {
-      band_name:'Akon', 
-      band_description:"Singer and rapper",
-      event_time:'27/01/2024 @20:00',
-      event_location:'O2 Arena',
-      image:'/assets/akon.jpg'
-    }
-  ]
+      band_name: 'Akon',
+      band_description: 'Singer and rapper',
+      event_time: '27/01/2024 @20:00',
+      event_location: 'O2 Arena',
+      image: '/assets/akon.jpg',
+      isFavourite: false,
+    },
+  ]);
 
   const [count, setCount] = useState(0);
+
   const incrementCounter = () => {
     setCount(count + 1);
   };
 
-  const [isFavourite, setIsFavourite] = useState(false);
-  const toggleFavourite = () => {
-    setIsFavourite(!isFavourite);
+  const toggleFavourite = (band_name) => {
+    setGigs((prevGigs) => {
+      const updatedGigs = prevGigs.map((gig) => 
+        gig.band_name === band_name ? { ...gig, isFavourite: !gig.isFavourite } : gig
+      );
+      return updatedGigs;
+    });
   };
+
+  const favoritedGigs = gigs.filter((gig) => gig.isFavourite);
+  const otherGigs = gigs.filter((gig) => !gig.isFavourite);
+
 
   return (
     <>
-    <div>
-      {gigs.map((gig) => {
-        return (
-          <Gig 
-            band_name={gig.band_name}
-            band_description={gig.band_description}
-            event_time={gig.event_time}
-            event_location={gig.event_location}
-            image={gig.image}
-            setIsFavourite={setIsFavourite}
-            isFavourite={isFavourite}
-            toggleFavourite={toggleFavourite}
-            />
-        )
-      })}
+        <h1>Favorited Gigs</h1>
+        {favoritedGigs.map((gig) => (
+          <Gig
+            key={gig.band_name}
+            {...gig}
+            isFavourite={gig.isFavourite}
+            toggleFavourite={() => toggleFavourite(gig.band_name)}
+          />
+        ))}
+        <h1>Other Gigs</h1>
+        {otherGigs.map((gig) => (
+          <Gig
+            key={gig.band_name}
+            {...gig}
+            isFavourite={gig.isFavourite}
+            toggleFavourite={() => toggleFavourite(gig.band_name)}
+          />
+        ))}
       <div>
         <h1>Counter</h1>
         <button onClick={incrementCounter}>Increment the counter</button>
@@ -69,7 +83,6 @@ function App() {
       <br></br>
       <br></br>
       <Die />
-    </div>
     </>
   );
 }
