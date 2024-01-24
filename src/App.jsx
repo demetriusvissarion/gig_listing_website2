@@ -3,6 +3,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import Gig from "./components/Gig";
+import ClickListener from "./components/ClickListener";
 
 function App() {
   const band_name = 'Queen';
@@ -39,6 +40,7 @@ function App() {
         <h1>{count}</h1>
         <button onClick={incrementCounter}>Increment the counter</button>
       </div>
+      < ClickListener />
     </div>
     </>
   );
