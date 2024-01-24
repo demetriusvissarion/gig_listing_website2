@@ -4,6 +4,7 @@ import "./App.css";
 import React, { useState } from "react";
 import Gig from "./components/Gig";
 import ClickListener from "./components/ClickListener";
+import InputComponent from "./components/InputComponent";
 
 function App() {
   const band_name = 'Queen';
@@ -22,14 +23,14 @@ function App() {
   return (
     <>
     <div>
-      < Gig 
+      <Gig 
         band_name={band_name}
         band_description={band_description}
         event_time={event_time}
         event_location={event_location}
         image={queenImageUrl}
         />
-      < Gig 
+      <Gig 
         band_name="Akon"
         band_description="Singer and rapper"
         event_time="27/01/2024 @20:00"
@@ -40,7 +41,11 @@ function App() {
         <h1>{count}</h1>
         <button onClick={incrementCounter}>Increment the counter</button>
       </div>
-      < ClickListener />
+      <ClickListener />
+      <br></br>
+      <br></br>
+      <h1>Input Logger App</h1>
+      <InputComponent />
     </div>
     </>
   );
