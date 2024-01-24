@@ -15,12 +15,9 @@ const Gig = (props) => {
             <h3 id="band-name">{props.band_name}</h3>
             <div id="band-image-container">
                 <img id="band-image" src={props.image} alt="Description of the image" />
-                <button
-                    className={favoriteButtonClass}
-                    onClick={toggleFavourite}
-                >
-                    {isFavourite ? 'Remove from favourites' : 'Add to favourites'}
-                </button>
+                {/* Use the star shape as the favorite button */}
+                <div className={`five-pointed-star ${isFavourite ? 'clicked' : ''}`} onClick={toggleFavourite}>
+                </div>
             </div>
             <p id="band-description">{props.band_description}</p>
             <p id="event-time">Event date: {props.event_time}</p>
