@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Gig from "./components/Gig";
 import ClickListener from "./components/ClickListener";
 import InputComponent from "./components/InputComponent";
+import Die from "./components/Die";
 
 function App() {
   const band_name = 'Queen';
@@ -38,14 +39,22 @@ function App() {
         image={akonImageUrl}
       />
       <div>
-        <h1>{count}</h1>
+        <h1>Counter</h1>
         <button onClick={incrementCounter}>Increment the counter</button>
       </div>
+      <br></br>
+      <br></br>
+      <div>
+      <h1>Click Listener</h1>
       <ClickListener />
+      </div>
       <br></br>
       <br></br>
-      <h1>Input Logger App</h1>
+      <h2>Input Logger App</h2>
       <InputComponent />
+      <br></br>
+      <br></br>
+      <Die />
     </div>
     </>
   );

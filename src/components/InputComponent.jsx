@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 const InputComponent = () => {
+    const [typedText, setTypedText] = useState("");
+
     const handleInputChange = (event) => {
-        const typedText = event.target.value;
-        console.log("Typed text:", typedText);
+        const newText = event.target.value;
+        setTypedText(newText);
     };
 
     return (
-    <input
+    <div>
+        <input
         type="text"
         placeholder="Type something..."
         onChange={handleInputChange}
-    />
+        />
+        <p>{typedText}</p>
+    </div>
     );
 };
 
