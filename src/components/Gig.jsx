@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import './Gig.css';
 
 const Gig = (props) => {
-    const [isFavourite, setIsFavourite] = useState(false);
-
-    const toggleFavourite = () => {
-        setIsFavourite(!isFavourite);
-    };
-
-    const favoriteButtonClass = isFavourite ? 'favorite clicked' : 'favorite';
-
     return (    
         <div id="gig-container">
             <h3 id="band-name">{props.band_name}</h3>
             <div id="band-image-container">
                 <img id="band-image" src={props.image} alt="Description of the image" />
-                {/* Use the star shape as the favorite button */}
-                <div className={`five-pointed-star ${isFavourite ? 'clicked' : ''}`} onClick={toggleFavourite}>
+                <div className={`five-pointed-star ${props.isFavourite ? 'clicked' : ''}`} onClick={props.toggleFavourite}>
                 </div>
             </div>
             <p id="band-description">{props.band_description}</p>

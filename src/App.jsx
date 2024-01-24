@@ -8,36 +8,50 @@ import InputComponent from "./components/InputComponent";
 import Die from "./components/Die";
 
 function App() {
-  const band_name = 'Queen';
-  const band_description = "Makers' favourite rock band";
-  const event_time = '26/01/2024 @20:00';
-  const event_location = 'O2 Arena';
-  const queenImageUrl = "/assets/queen.jpg";
-  const akonImageUrl = "/assets/akon.jpg";
+  const gigs = [
+    {
+      band_name:'Queen', 
+      band_description:"Makers' favourite rock band",
+      event_time:'26/01/2024 @20:00',
+      event_location:'O2 Arena',
+      image:'/assets/queen.jpg'
+    },
+    {
+      band_name:'Akon', 
+      band_description:"Singer and rapper",
+      event_time:'27/01/2024 @20:00',
+      event_location:'O2 Arena',
+      image:'/assets/akon.jpg'
+    }
+  ]
 
   const [count, setCount] = useState(0);
-
   const incrementCounter = () => {
     setCount(count + 1);
+  };
+
+  const [isFavourite, setIsFavourite] = useState(false);
+  const toggleFavourite = () => {
+    setIsFavourite(!isFavourite);
   };
 
   return (
     <>
     <div>
-      <Gig 
-        band_name={band_name}
-        band_description={band_description}
-        event_time={event_time}
-        event_location={event_location}
-        image={queenImageUrl}
-        />
-      <Gig 
-        band_name="Akon"
-        band_description="Singer and rapper"
-        event_time="27/01/2024 @20:00"
-        event_location="O2 Arena"
-        image={akonImageUrl}
-      />
+      {gigs.map((gig) => {
+        return (
+          <Gig 
+            band_name={gig.band_name}
+            band_description={gig.band_description}
+            event_time={gig.event_time}
+            event_location={gig.event_location}
+            image={gig.image}
+            setIsFavourite={setIsFavourite}
+            isFavourite={isFavourite}
+            toggleFavourite={toggleFavourite}
+            />
+        )
+      })}
       <div>
         <h1>Counter</h1>
         <button onClick={incrementCounter}>Increment the counter</button>
