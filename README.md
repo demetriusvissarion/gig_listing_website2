@@ -22,4 +22,6 @@ npm run lint
 npm run build
 ```
 
+```zsh
 npm i @testing-library/user-event
+```

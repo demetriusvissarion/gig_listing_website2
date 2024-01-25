@@ -6,6 +6,7 @@ import Gig from "./components/Gig";
 import ClickListener from "./components/ClickListener";
 import InputComponent from "./components/InputComponent";
 import Die from "./components/Die";
+import LoginForm from "./components/forms/LoginForm";
 
 function App() {
   const [gigs, setGigs] = useState([
@@ -83,6 +84,9 @@ function App() {
       <br></br>
       <br></br>
       <Die />
+      <br></br>
+      <br></br>
+      <LoginForm />
     </>
   );
 }
