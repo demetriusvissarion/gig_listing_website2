@@ -32,36 +32,6 @@
     margin-top: 10px;
 }
 
-/* New styles for the favorite button
-button.favorite {
-    opacity: 1;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: green;
-    padding: 5px;
-    border-radius: 0 8px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    transition: opacity 0.3s, background-color 0.3s;
-    z-index: 7;
-
-}
-
-button.favorite:hover {
-    opacity: .5;
-}
-
-button.favorite.clicked {
-    opacity: 1;
-    background-color: gold;
-}
-
-button.favorite.clicked:hover {
-    opacity: .75;
-} */
-
 .five-pointed-star {
     --star-color: orange;
     font-size: 3em;

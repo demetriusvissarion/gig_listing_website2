@@ -8,6 +8,7 @@ import InputComponent from "./components/InputComponent";
 import Die from "./components/Die";
 import LoginForm from "./components/forms/LoginForm";
 import TodoList from "./components/TodoList";
+import Joke from "./components/Joke";
 
 function App() {
   const [gigs, setGigs] = useState([
@@ -50,24 +51,27 @@ function App() {
 
   return (
     <>
-        <h1>Favorited Gigs</h1>
-        {favoritedGigs.map((gig) => (
-          <Gig
-            key={gig.band_name}
-            {...gig}
-            isFavourite={gig.isFavourite}
-            toggleFavourite={() => toggleFavourite(gig.band_name)}
-          />
-        ))}
-        <h1>Other Gigs</h1>
-        {otherGigs.map((gig) => (
-          <Gig
-            key={gig.band_name}
-            {...gig}
-            isFavourite={gig.isFavourite}
-            toggleFavourite={() => toggleFavourite(gig.band_name)}
-          />
-        ))}
+      <Joke />
+      <br></br>
+      <br></br>
+      <h1>Favorited Gigs</h1>
+      {favoritedGigs.map((gig) => (
+        <Gig
+          key={gig.band_name}
+          {...gig}
+          isFavourite={gig.isFavourite}
+          toggleFavourite={() => toggleFavourite(gig.band_name)}
+        />
+      ))}
+      <h1>Other Gigs</h1>
+      {otherGigs.map((gig) => (
+        <Gig
+          key={gig.band_name}
+          {...gig}
+          isFavourite={gig.isFavourite}
+          toggleFavourite={() => toggleFavourite(gig.band_name)}
+        />
+      ))}
       <div>
         <h1>Counter</h1>
         <button onClick={incrementCounter}>Increment the counter</button>
@@ -91,6 +95,8 @@ function App() {
       <br></br>
       <br></br>
       <TodoList />
+      <br></br>
+      <br></br>
     </>
   );
 }

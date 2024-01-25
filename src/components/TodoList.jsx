@@ -14,7 +14,7 @@ const TodoList = (props) => {
                 return res.json();
             })
             .then((data) => {
-                console.log("Raw Data:", data); // Log raw data
+                // console.log("Raw Data:", data); // Log raw data
                 setTodos(data);
             })
             .catch((error) => console.error("Error fetching todos:", error));
