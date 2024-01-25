@@ -14,10 +14,10 @@ const Joke = () => {
             })
             .then((data) => {
                 setJoke(data);
-                console.log("Raw Data:", data); // for dev stage only
+                // console.log("Raw Data:", data); // for dev stage only
             })
             .catch((error) => console.error("Error fetching todos:", error));
-        console.log('i fire once');
+        // console.log('i fire once');
     }, []);
     
     return (

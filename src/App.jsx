@@ -1,7 +1,5 @@
-// import Hello from "./components/Hello";
-// import makersLogo from "../public/assets/Makers-Logo.png";
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Gig from "./components/Gig";
 import ClickListener from "./components/ClickListener";
 import InputComponent from "./components/InputComponent";
@@ -11,24 +9,23 @@ import TodoList from "./components/TodoList";
 import Joke from "./components/Joke";
 
 function App() {
-  const [gigs, setGigs] = useState([
-    {
-      band_name: 'Queen',
-      band_description: "Makers' favourite rock band",
-      event_time: '26/01/2024 @20:00',
-      event_location: 'O2 Arena',
-      image: '/assets/queen.jpg',
-      isFavourite: false,
-    },
-    {
-      band_name: 'Akon',
-      band_description: 'Singer and rapper',
-      event_time: '27/01/2024 @20:00',
-      event_location: 'O2 Arena',
-      image: '/assets/akon.jpg',
-      isFavourite: false,
-    },
-  ]);
+  const [gigs, setGigs] = useState([]);
+
+  useEffect(() => {
+    const URL = `https://makers-gig-backend.onrender.com/events`;
+    fetch(URL)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+            return res.json();
+        })
+        .then((data) => {
+            // console.log("Raw Data:", data); // Log raw data
+            setGigs(data);
+        })
+        .catch((error) => console.error("Error fetching todos:", error));
+}, []);
 
   const [count, setCount] = useState(0);
 
@@ -47,6 +44,8 @@ function App() {
 
   const favoritedGigs = gigs.filter((gig) => gig.isFavourite);
   const otherGigs = gigs.filter((gig) => !gig.isFavourite);
+
+  const [todos, setTodos] = useState([]);
 
 
   return (
@@ -79,8 +78,8 @@ function App() {
       <br></br>
       <br></br>
       <div>
-      <h1>Click Listener</h1>
-      <ClickListener />
+        <h1>Click Listener</h1>
+        <ClickListener />
       </div>
       <br></br>
       <br></br>
@@ -94,7 +93,7 @@ function App() {
       <LoginForm />
       <br></br>
       <br></br>
-      <TodoList />
+      <TodoList todos={todos} setTodos={setTodos} todo_title='Walk the dog'/>
       <br></br>
       <br></br>
     </>
@@ -102,3 +101,30 @@ function App() {
 }
 
 export default App;
+
+// We have built a basic backend API which will send a list of events.
+
+// The API is hosted on render here: https://makers-gig-backend.onrender.com/events
+
+// Use a tool like Postman or CURL to send requests and explore this API.
+// Update your gig application to fetch the list of events from this backend the first time the application is loaded, instead of hard coding them.
+// While the events are loading, your application should somehow communicate to the user that the data is loading, either through a spinner, or the word "Loading" etc. It is up to you how to display it.
+// Note: This app is being hosted using the free version of Render, so may take up to 30 seconds to respond if it hasn't been used for a while.
+
+
+// {
+//   band_name: 'Queen',
+//   band_description: "Makers' favourite rock band",
+//   event_time: '26/01/2024 @20:00',
+//   event_location: 'O2 Arena',
+//   image: '/assets/queen.jpg',
+//   isFavourite: false,
+// },
+// {
+//   band_name: 'Akon',
+//   band_description: 'Singer and rapper',
+//   event_time: '27/01/2024 @20:00',
+//   event_location: 'O2 Arena',
+//   image: '/assets/akon.jpg',
+//   isFavourite: false,
+// },
