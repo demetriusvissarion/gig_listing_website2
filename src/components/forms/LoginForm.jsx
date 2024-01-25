@@ -5,47 +5,64 @@ const LoginForm = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [passwordError, setPasswordError] = useState('');
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-
-        if (name === "username") {
+    
+        if (name === 'username') {
             setUsername(value);
-        } else if (name === "password") {
+        } else if (name === 'password') {
             setPassword(value);
+            // console.log('Password length:', value.length);
+            if (value.length < 8) {
+                // console.log('Setting password error');
+                setPasswordError("Password must be at least 8 characters");
+            } else {
+                // console.log('Clearing password error'); 
+                setPasswordError('');
+            }
         } else if (name === 'phoneNumber') {
-            // Remove non-numeric characters from the phone number
             const numericValue = value.replace(/\D/g, '');
             setPhoneNumber(numericValue);
         }
     };
+    
 
     // http://url.com/endpoint did not work
     // created a working endpoint using a Flask server
     // (extended Projects/cloud_deployment/simple_server)
     // tested with Postman
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
 
-        try {
-            const response = await fetch("http://127.0.0.1:5000/endpoint", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username: username }),
-            });
-
-            if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            console.log("Request successful!");
-        } catch (error) {
-            console.error("Error handling the request:", error.message);
+        // Check password length again before submitting
+        if (password.length < 8) {
+            setPasswordError("Password must be at least 8 characters");
+            return;
         }
-        };
-        
+
+        setTimeout(async () => {
+            try {
+                const response = await fetch("http://127.0.0.1:5000/endpoint", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ username, password, phoneNumber }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                console.log("Request successful!");
+            } catch (error) {
+                console.error("Error handling the request:", error.message);
+            }
+        }, 1000);
+    };
+
 
     return (
         <>
@@ -71,6 +88,7 @@ const LoginForm = () => {
                         className="input-field"
                     />
                 </label>
+                {passwordError && <p className="error-message">{passwordError}</p>}
                 <label className="label">
                     Enter your phone number:
                     <input
